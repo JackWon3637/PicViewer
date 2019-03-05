@@ -1,0 +1,339 @@
+#msgBar {
+    width: 150px;
+    height: 50px;
+    right: 0;
+    top: 0;
+    margin: 2px;
+    background-color: rgba(255, 255, 255, 0.75);
+    position: absolute;
+    z-index:100
+}
+#msgBar .mbar_contact {
+    position: absolute;
+    top: 0;
+    line-height: 50px;
+    color: #5955f7;
+    cursor: pointer;
+    background: url(../image/ttbar_contact3.png) no-repeat scroll left center;
+    padding-left: 25px
+}
+#msgBar .mbar_contact:hover {
+    text-decoration: underline
+}
+#msgBar p {
+    text-align: center;
+    color: #333;
+    line-height: 50px;
+    padding-right: 100px
+}
+#msgBar p font {
+    font-size: 18px bold;
+    color: #666
+}
+
+.tagPic {
+    position: absolute;
+ /*   top: 50px;*/
+    right: 0px;
+}
+.tagPic img {
+    max-height: 150px;
+    max-width: 150px;
+    margin: 2px;
+    display: block
+}
+
+.secondBar {
+    position: absolute;
+    min-height: 200px;
+    width: 200px;
+    right:0px;
+    border: 1px solid #dedede;
+    background-color: #fff;
+    top: 0;
+    display: none
+}
+.secondBar .sdbar_header {
+    height: 36px;
+    text-align: left;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dedede;
+    width: 100%
+}
+.secondBar .sdbar_title {
+    font-size: 16px;
+    color: #4a95fb;
+    line-height: 36px;
+    padding-left: 8px
+}
+.secondBar .close_sdbar {
+    background-image: url(../image/close_sdbar.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    float: right;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    margin: 10px 8px 0 0
+}
+.secondBar .close_sdbar:hover {
+    background-image: url(../image/close_sdbar2.png)
+}
+.secondBar .sdbar_content {
+    width: 168px;
+    /*height:auto!important;*/ 
+    margin: 0 0 0 16px;
+    padding-right: 16px;
+    -webkit-user-select: none;
+/*    -khtml-user-select: none;*/
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none
+}
+.contact_msg {
+    line-height: 22px;
+    font-size: 14px;
+    color: #888;
+    padding-bottom: 6px
+}
+.contact_msg span {
+    color: #333;
+    white-space: nowrap
+}
+
+.tools {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tools li {
+  width: 100%;
+  height: 47px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 28px;
+  border-top: #dad7d9 solid 1px;
+  background: #E5E4E5;
+  cursor: pointer;
+/*  position: relative;*/
+}
+
+.tools li:hover {
+  background:#BFEFFF;
+  /*background: #f2f1f2;*/
+}
+
+.tools li.active {
+  background: #00E5EE;
+  /*background: #888;*/
+}
+
+.hide {
+  display: none;
+}
+
+.canvasDiv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.icon-tools {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background-image: url("../image/tools-28.png");
+  background-repeat: no-repeat;
+  margin-top: 10px;
+}
+
+.icon-color-gray {
+  background-position: -0px -0px;
+}
+
+.icon-color-red {
+  background-position: -28px -0px;
+}
+
+.icon-color-black {
+  background-position: -56px -0px;
+}
+
+.icon-color-blue {
+  background-position: -84px -0px;
+}
+
+.icon-color-select {
+  background-position: -112px -0px;
+}
+
+.icon-eye-black {
+  background-position: -140px -0px;
+}
+
+.icon-eye-select {
+  background-position: -168px -0px;
+}
+
+.icon-noeye-black {
+  background-position: -196px -0px;
+}
+
+.icon-noeye-select {
+  background-position: -0px -28px;
+}
+
+.icon-grids-black {
+  background-position: -28px -28px;
+}
+
+.icon-grids-select {
+  background-position: -56px -28px;
+}
+
+.icon-nogrids-black {
+  background-position: -84px -28px;
+}
+
+.icon-nogrids-select {
+  background-position: -112px -28px;
+}
+
+.icon-pen-black {
+  background-position: -140px -28px;
+}
+
+.icon-pen-select {
+  background-position: -168px -28px;
+}
+
+.icon-move-black {
+  background-position: -196px -28px;
+}
+
+.icon-move-select {
+  background-position: -0px -56px;
+}
+
+.icon-text-black {
+  background-position: -28px -56px;
+}
+
+.icon-text-select {
+  background-position: -56px -56px;
+}
+
+.icon-dottedline-arrow-black {
+  background-position: -84px -56px;
+}
+
+.icon-dottedline-arrow-select {
+  background-position: -112px -56px;
+}
+
+.icon-line-black {
+  background-position: -140px -56px;
+}
+
+.icon-line-select {
+  background-position: -168px -56px;
+}
+
+.icon-dottedline-black {
+  background-position: -196px -56px;
+}
+
+.icon-dottedline-select {
+  background-position: -0px -84px;
+}
+
+.icon-arrow-black {
+  background-position: -28px -84px;
+}
+
+.icon-arrow-select {
+  background-position: -56px -84px;
+}
+
+.icon-circle-black {
+  background-position: -84px -84px;
+}
+
+.icon-circle-select {
+  background-position: -112px -84px;
+}
+
+.icon-ellipse-black {
+  background-position: -140px -84px;
+}
+
+.icon-ellipse-select {
+  background-position: -168px -84px;
+}
+
+.icon-square-black {
+  background-position: -196px -84px;
+}
+
+.icon-square-select {
+  background-position: -0px -112px;
+}
+
+.icon-rectangle-black {
+  background-position: -28px -112px;
+}
+
+.icon-rectangle-select {
+  background-position: -56px -112px;
+}
+
+.icon-rightangle-black {
+  background-position: -84px -112px;
+}
+
+.icon-rightangle-select {
+  background-position: -112px -112px;
+}
+
+.icon-equilateral-black {
+  background-position: -140px -112px;
+}
+
+.icon-equilateral-select {
+  background-position: -168px -112px;
+}
+
+.icon-isosceles-black {
+  background-position: -196px -112px;
+}
+
+.icon-isosceles-select {
+  background-position: -0px -140px;
+}
+
+.icon-isoscelesrighttriangle-black {
+  background-position: -28px -140px;
+}
+
+.icon-isoscelesrighttriangle-select {
+  background-position: -56px -140px;
+}
+
+.icon-remove-black {
+  background-position: -84px -140px;
+}
+
+.icon-remove-select {
+  background-position: -112px -140px;
+}
+
+.icon-clear-black {
+  background-position: -140px -140px;
+}
+
+.icon-clear-select {
+  background-position: -168px -140px;
+}
