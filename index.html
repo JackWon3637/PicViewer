@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>owon数字病理会诊平台</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="测试数据,数字病理远程会诊,远程病理会诊">
+    <link href="./image/logo.png" type="image/png" rel="icon"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <script src="./js/jquery.min.js"></script>
+    <script src='./js/openseadragon.min.js'></script>
+    <script src='./js/openseadragon-scalebar.js'></script>
+    <script src="./js/openseadragon-fabricjs-overlay.js"></script>
+    <script src="./js/fabric.adapted.js"></script>
+</head>
+<body style="background-color: #fefefe;overflow: hidden;">
+    <div style="margin-top:95px;position: absolute;z-index:100;">
+        <div style="width:65px;margin-left:-10px;">
+            <ul id="toolsul" class="tools">
+            	<!-- data-* 属性用于存储页面或应用程序的私有自定义数据。 -->
+                <li data-type="arrow">
+                    <i class="icon-tools icon-arrow-black" data-default='icon-tools icon-arrow-black'></i>
+                </li>
+                <li data-type="line">
+                    <i class="icon-tools icon-line-black" data-default='icon-tools icon-line-black'></i>
+                </li>
+                <li data-type="circle">
+                    <i class="icon-tools icon-circle-black" data-default='icon-tools icon-circle-black'></i>
+                </li>
+                <li data-type="rectangle">
+                    <i class="icon-tools icon-rectangle-black" data-default='icon-tools icon-rectangle-black'></i>
+                </li>
+                <li data-type="clear">
+                    <i class="icon-tools icon-clear-black" data-default='icon-tools icon-clear-black'></i>
+                </li>
+            </ul>
+            <ul id="sdtool" class="tools">
+                <li id="home"style="font-size: 20px;"><span>默认</span></li>
+                <li id="full-page"style="font-size: 20px;"><span>全屏</span></li>
+            	<li id="zoom-in"><span>+</span></li>
+            	<li id="zoom-num" style="font-size: 24px;"><span></span></li>
+                <li id="zoom-out"><span>-</span></li>
+                <li id="zoom-zoom" style="display: none;"><span></span></li>
+            	
+            </ul>
+            
+        </div>
+    </div>
+    <div id="msgBar">
+        <p><span class="mbar_contact">病例信息</span></p>
+    </div>
+    <div class="secondBar" style="display: none;z-index: 101;">
+        <div class="sdbar_header"><span class="sdbar_title">病例信息</span><span class="close_sdbar"></span></div>
+        <div id="sdbar_content" class="sdbar_content" style="height:566px;overflow-y:scroll; overflow-x:hidden;">
+            <p class="contact_msg"><span>目录：</span>泌尿与男性生殖系统</p>
+            <p class="contact_msg"><span>性别：</span>男</p>
+            <p class="contact_msg"><span>年龄：</span>56</p>
+            <p class="contact_msg"><span>患者详情：</span>因“右侧腰部疼痛不适两周”入院。</p><p class="contact_msg"><span>临床资料：</span>双肾区无膨隆，双肾未触及，双肾区无叩击痛，双侧输尿管行径无明显压痛，膀胱区不充盈，无压痛；外生殖器发育正常，尿道外口无明显狭窄及异常分泌物。</p>
+            <p class="contact_msg"><span>大体所见：</span>肾脏大小18cm*12cm*7cm，切面肾中上极见一肿块，大小12cm*8cm*7cm，切面灰黄、灰白色，肿瘤累及肾盂及肾门脂肪组织，肾盂结构不清，肾门脂肪组织内见多枚结节，最大径1.5cm-4cm，切面灰白、灰黄色、实性、质硬，肾被膜光滑，未见肿瘤累及；输尿管长5cm，直径0.5cm，直径0.5cm。肾周脂肪内未查见淋巴结。</p>
+            <p class="contact_msg"><span>免疫组化：</span>Syn(+)、CD56（+）、CA9（+）、E-cad（+）、CgA（-）、CD117(-)、CK20（-）、CK7（-）、P504s（-）、RCC（-）、TFE3（-）、CD10（-）、Ki67（5%+）</p>
+            <p class="contact_msg"><span>诊断意见：</span></p>
+        </div>
+    </div>
+    <div class="tagPic" style="top:50px;z-index: 100"><img src="./image/blxinxi_num.jpg"><img src="./image/blxinxi_pic.jpg"style="margin-top:5px;"></div>
+    <div id="canvasDiv" class="canvasDiv" >
+        <script type='text/javascript'>
+             var openSeadragon = new OpenSeadragon.Viewer({
+                 id:  'canvasDiv',//指定显示的div
+                 prefixUrl: './images/',//库中按钮等图片所在文件夹
+                 tileSources: {//说明所要显示源图片的信息
+                     Image: {
+                         xmlns:  'http://schemas.microsoft.com/deepzoom/2009',//指令集
+                         Url: './test_files/',//图片库地址
+                         Overlap: '1',//相邻图片重合的像素
+                         TileSize: '256',//单个切片（正方形）的边长
+                         Format : 'jpg',//切片格式
+                         Size:{//图片总大小
+                             Height: '1440',
+                             Width:  '2560',
+                         },
+                     },
+                 },
+                 gestureSettingsMouse:{clickToZoom:false},//设置鼠标单击不可放大
+                 showNavigator: true,//导航视图
+                 // mouseNavEnabled:false,
+                 navigatorAutoFade:  false,//导航栏永久存在
+                 // navigatorBackgroundColor:'white',
+                 // navigatorPosition: "TOP_LEFT",
+                 navigatorPosition: "ABSOLUTE",
+                 navigatorTop:      "4px",
+                 navigatorLeft:     "5px",
+                 navigatorHeight:   "90px",
+                 navigatorWidth:    "200px",//导航窗口的位置
+                 navigatorBackground:'#fefefe',
+                 navigatorBorderColor:"#191970",
+                 navigatorDisplayRegionColor:"#FF0000",
+                 zoomInButton:   "zoom-in",         //放大
+                 zoomOutButton:  "zoom-out",        //缩小
+                 homeButton:     "home",            //恢复默认
+                 fullPageButton: "full-page",       //全屏
+                 // debugMode: true, //开启调试模式
+                 // debugGridColor:'#1B9E77', //调试模式下网格的颜色
+                 panHorizontal: true, //false:不能水平移动，只能竖直移动
+                 defaultZoomLevel: 0.8, //初始化默认放大倍数，按home键也返回该层
+                 minZoomLevel: 0.5,  //最小允许放大倍数
+                 maxZoomLevel: 120, //最大允许放大倍数
+                 visibilityRatio: 0.3,//图片在框内的最小比例
+                 constrainDuringPan: true//(default: false)是否限制拖拽出允许显示范围
+            }); 
+             openSeadragon.scalebar({
+                type: OpenSeadragon.ScalebarType.MAP,
+                pixelsPerMeter: 200000, //设置像素与实际的比值
+                minWidth: "150px",
+                location: OpenSeadragon.ScalebarLocation.BOTTOM_LEFT,
+                xOffset: 5,
+                yOffset: 10,
+                stayInsideImage: false,
+                color: "rgb(0, 0, 0)",
+                fontColor: "rgb(0, 0, 0)",
+                backgroundColor: "rgba(255, 255, 255, 0.5)",
+                fontSize: "middle",
+                barThickness: 4,
+             });
+
+             var zoomEl = document.querySelectorAll('#zoom-num')[0];
+             var zoomE2 = document.querySelectorAll('#zoom-zoom')[0];
+             var updateZoom = function() {
+                 var zoom = openSeadragon.viewport.getZoom(true);
+                 var imageZoom = openSeadragon.viewport.viewportToImageZoom(zoom);
+                 zoomEl.innerHTML = '' + (Math.round(imageZoom * 100) / 100);
+                 zoomE2.innerHTML = '' + (Math.round(zoom * 100) / 100);
+             }
+             //将放大倍数去除，除以真实宽度，得到真实放大倍数
+            updateZoom();
+            // var can_zoom = zoomEl.innerHTML/2560;
+            zoomEl.innerHTML = '' + (zoomEl.innerHTML/2560).toFixed(2) ;          
+
+
+             //以下为标尺的信息和函数
+             function updateText(property) {
+                        var value = document.getElementById(property).value;
+                        var options = {};
+                        options[property] = value;
+                        viewer.scalebar(options);
+                    }
+
+                    function updateNumber(property) {
+                        var value = document.getElementById(property).value;
+                        var options = {};
+                        options[property] = parseFloat(value);
+                        viewer.scalebar(options);
+                    }
+
+                    function updateCheckbox(property) {
+                        var value = document.getElementById(property).checked;
+                        var options = {};
+                        options[property] = value;
+                        viewer.scalebar(options);
+                    }
+
+                    function updateList(property) {
+                        var selected = document.getElementById(property).selectedIndex;
+                        var options = {};
+                        options[property] = selected;
+                        viewer.scalebar(options);
+                    }
+        </script>
+        <canvas id="c" width="1920" height="1080">请使用支持HTML5的浏览器</canvas>
+    </div>
+    <script src="js/demo.js"></script>
+
+</body>
+
+</html>
